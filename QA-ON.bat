@@ -9,4 +9,4 @@ if exist "%PIDFILE%" (
 )
 start "QA-OpenCode" /min powershell -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "%USERPROFILE%\opencode-noti\qa-watcher.ps1"
 start "QA-HUD" /min powershell -NoProfile -WindowStyle Hidden -ExecutionPolicy Bypass -File "%USERPROFILE%\opencode-noti\qa-hud.ps1"
-echo Activado. Copia un texto y espera 2s.
+echo Activado. Copia un texto y listo.

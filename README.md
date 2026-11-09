@@ -4,7 +4,7 @@ Copias texto o imagen → OpenCode responde → la respuesta aparece abajo-izqui
 
 ## Que hace
 
-- Vigilante del portapapeles: copias algo (`Ctrl+C`), esperas 2 s y llega la respuesta al HUD.
+- Vigilante del portapapeles: copias algo (`Ctrl+C`) y llega la respuesta al HUD al instante.
 - Texto e imagenes (un recorte de `Win+Shift+S` queda en el portapapeles y va a vision).
 - Conversacion continua mientras esta prendido (apagar y prender = conversacion nueva).
 - HUD minimo: solo texto flotante abajo-izquierda, sin fondo. `Ctrl+B` muestra/oculta.
@@ -25,7 +25,7 @@ Copias texto o imagen → OpenCode responde → la respuesta aparece abajo-izqui
 
 ## Uso
 
-1. Doble clic `QA-ON` → copia texto o imagen → 2 s → respuesta en el HUD.
+1. Doble clic `QA-ON` → copia texto o imagen → respuesta al instante en el HUD.
 2. Repetir la misma pregunta: copia otra cosa y volve a copiarla.
 3. `QA-OFF` apaga todo (watcher + HUD).
 

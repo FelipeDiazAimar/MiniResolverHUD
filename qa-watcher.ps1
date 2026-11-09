@@ -11,7 +11,7 @@ Add-Type -AssemblyName System.Windows.Forms
 Add-Type -AssemblyName System.Drawing
 
 $MAXLEN = 2000
-$DEBOUNCE = 2.0
+$DEBOUNCE = 0
 $MODEL = $env:OPENCODE_MODEL
 if ([string]::IsNullOrWhiteSpace($MODEL)) { $MODEL = "opencode-go/muse-spark-1.3-contributor" }
 $sid = "ses_qa_" + (Get-Date -Format "yyyyMMdd_HHmmss")
@@ -21,7 +21,7 @@ function Show-Noti($title, $msg) {
   return  # notis apagadas: solo HUD
 }
 
-Show-Noti "QA activado" "Copiá un texto (Ctrl+C), esperá 2s y te respondo acá."
+Show-Noti "QA activado" "Copia un texto (Ctrl+C) y te respondo al instante."
 
 $candidate = ""; $t0 = [DateTime]::MinValue; $done = ""; $doneTime = [DateTime]::MinValue
 $candImg = ""; $candBytes = $null; $doneImg = ""
@@ -56,13 +56,13 @@ while ($true) {
         }
       }
     }
-    Start-Sleep -Milliseconds 400; continue
+    Start-Sleep -Milliseconds 250; continue
   } else { $candImg = ""; $doneImg = "" }
   try {
     $t = (Get-Clipboard -Raw -ErrorAction SilentlyContinue)
     if ($null -ne $t) { $t = $t.Trim() } else { $t = "" }
   } catch { $t = "" }
-  if ($t -eq "") { $candidate = ""; $done = ""; Start-Sleep -Milliseconds 400; continue }
+  if ($t -eq "") { $candidate = ""; $done = ""; Start-Sleep -Milliseconds 250; continue }
   $isNew = ($t -ne $done)
   if ($t.Length -gt 2 -and $t.Length -lt $MAXLEN -and $isNew) {
     if ($t -ne $candidate) { $candidate = $t; $t0 = Get-Date }
@@ -81,6 +81,6 @@ while ($true) {
       }
     }
   } else { $candidate = "" }
-  Start-Sleep -Milliseconds 400
+  Start-Sleep -Milliseconds 250
 }
 
