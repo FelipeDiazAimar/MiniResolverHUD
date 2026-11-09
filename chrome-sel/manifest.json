@@ -1,0 +1,23 @@
+{
+  "manifest_version": 3,
+  "name": "QA Sel Invisible",
+  "version": "1.0",
+  "description": "Oculta el resaltado de seleccion en las paginas (copiar sigue funcionando). Clic en el icono para activar/desactivar.",
+  "permissions": ["scripting", "tabs", "storage"],
+  "host_permissions": ["http://*/*", "https://*/*"],
+  "action": {
+    "default_title": "Sel invisible",
+    "default_popup": "popup.html"
+  },
+  "background": {
+    "service_worker": "bg.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["http://*/*", "https://*/*"],
+      "js": ["cs.js"],
+      "run_at": "document_start",
+      "all_frames": true
+    }
+  ]
+}
